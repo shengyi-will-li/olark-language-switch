@@ -45,3 +45,5 @@ This document outlines the behavior of Olark chatbox localization when switching
 - To trigger the Olark chatbox, click the Expand Olark Chatbox button
 
 - To switch languages, click the respective button (`Switch to French` or `Switch to English`).
+
+- If you refresh the page, the current language will persist.
