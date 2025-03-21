@@ -9,7 +9,8 @@ const App = () => {
   const toggleLanguage = () => {
     const newLanguage = language === "English" ? "French" : "English";
     setLanguage(newLanguage);
-    localStorage.setItem("appLanguage", newLanguage); // Save to localStorage
+    localStorage.setItem("appLanguage", newLanguage);
+    window.location.reload();
   };
 
   const ExpandOlarkChatbox = () => {
@@ -29,6 +30,7 @@ const App = () => {
       console.warn("Language Change");
 
       if (language === "French") {
+        console.warn("French Setting");
         window.olark("api.box.setLocale", "fr-FR");
         window.olark.configure("system.localization", "fr-FR");
         window.olark.configure(
@@ -70,7 +72,7 @@ const App = () => {
         );
       }
     }
-  }, [language, olarkAppId]);
+  }, []);
 
   return (
     <div className="working-block">
