@@ -72,7 +72,7 @@ const App = () => {
         );
       }
     }
-  }, []);
+  }, [language, olarkAppId]);
 
   return (
     <div className="working-block">
