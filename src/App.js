@@ -2,13 +2,11 @@ import { useEffect, useState } from "react";
 
 const App = () => {
   // Load language from localStorage or default to English
-  const [language, setLanguage] = useState(
-    localStorage.getItem("appLanguage") || "English"
-  );
+
+  const language = localStorage.getItem("appLanguage") || "English";
 
   const toggleLanguage = () => {
     const newLanguage = language === "English" ? "French" : "English";
-    setLanguage(newLanguage);
     localStorage.setItem("appLanguage", newLanguage);
     window.location.reload();
   };
@@ -72,7 +70,13 @@ const App = () => {
         );
       }
     }
-  }, [language, olarkAppId]);
+    window.olark("api.chat.onReady", () => {
+      window.olark(
+        "api.box.setLocale",
+        language === "French" ? "fr-FR" : "en-US"
+      );
+    });
+  }, [olarkAppId]);
 
   return (
     <div className="working-block">
